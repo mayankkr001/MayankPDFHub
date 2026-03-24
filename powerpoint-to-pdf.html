@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerPoint to PDF | Mayank PDF Hub</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Convert PowerPoint files to PDF using remote converter mode and browser fallback." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/tools.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <style>
+    main { padding: 2rem 0 3rem; }
+    .tool-wrapper { max-width: 980px; margin: 0 auto; }
+    .meta-line { color: #475569; margin-bottom: 1rem; }
+    .file-meta { margin: 0.5rem 0; color: #334155; }
+    .progress-track { width: 100%; background: #e2e8f0; border-radius: 999px; overflow: hidden; height: 10px; }
+    .progress-bar { width: 0%; height: 100%; background: #2563eb; transition: width 0.25s ease; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="../index.html" class="logo">
+        <ion-icon name="document-text" style="color: #1d4ed8; font-size: 1.8rem;"></ion-icon>
+        <div class="brand-text">MAYANK <span>PDF HUB</span></div>
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a class="nav-link" href="../index.html">All Tools</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container tool-wrapper">
+      <header class="tool-header">
+        <h1>PowerPoint to PDF</h1>
+        <p>Convert PPT/PPTX to PDF with server mode (iLovePDF style) and browser fallback.</p>
+      </header>
+
+      <section class="workspace">
+        <div id="drop-zone" class="upload-container">
+          <input id="file-input" type="file" accept=".ppt,.pptx,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden />
+          <ion-icon name="easel-outline" class="icon"></ion-icon>
+          <h3>Select a PowerPoint file</h3>
+          <p>Upload .ppt or .pptx. Legacy .ppt requires server mode.</p>
+          <button class="btn btn-primary" type="button">Select PPT/PPTX</button>
+        </div>
+
+        <div id="options-panel" class="options-panel" style="display:none;">
+          <p class="file-meta"><strong>File:</strong> <span id="filename-display"></span></p>
+          <div class="controls">
+            <button id="convert-btn" class="btn btn-primary" type="button">Convert to PDF</button>
+          </div>
+        </div>
+
+        <div id="progress-container" class="options-panel" style="display:none;">
+          <p id="progress-text" class="meta-line">Preparing conversion...</p>
+          <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+        </div>
+
+        <div id="success-state" class="success-message">
+          <ion-icon name="checkmark-circle" class="success-icon"></ion-icon>
+          <h2>PDF Ready</h2>
+          <p>Your converted PDF is ready to download.</p>
+          <button id="download-btn" class="btn btn-primary" type="button">Download PDF</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>if (!window.JSZip) { document.write('<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"><\\/script>'); }</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>if (!window.jspdf || !window.jspdf.jsPDF) { document.write('<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"><\\/script>'); }</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script>if (typeof window.saveAs !== "function") { document.write('<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"><\\/script>'); }</script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/remote-config.js"></script>
+  <script src="../js/remote-converter.js"></script>
+  <script src="../js/tools/powerpoint-to-pdf.js"></script>
+   <!-- WEBSITE SECURITY START -->
+<script>
+
+// Disable Right Click
+document.addEventListener("contextmenu", function(e){
+e.preventDefault();
+});
+
+// Disable Inspect Element & View Source
+document.onkeydown = function(e) {
+if (e.keyCode == 123) { return false; } // F12
+if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { return false; } // Ctrl+Shift+I
+if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { return false; } // Ctrl+Shift+J
+if (e.ctrlKey && e.keyCode == 85) { return false; } // Ctrl+U
+};
+
+// Disable Text Selection
+document.addEventListener("selectstart", function(e){
+e.preventDefault();
+});
+
+// Disable Drag
+document.addEventListener("dragstart", function(e){
+e.preventDefault();
+});
+
+// Disable Image Save
+document.querySelectorAll("img").forEach(img=>{
+img.addEventListener("contextmenu",e=>e.preventDefault());
+});
+
+// Console Warning
+console.clear();
+console.log("%cSTOP!", "color:red;font-size:40px;font-weight:bold;");
+console.log("This website is protected.");
+
+</script>
+<!-- WEBSITE SECURITY END -->
+</body>
+</html>
