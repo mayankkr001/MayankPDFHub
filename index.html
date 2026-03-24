@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="9aMb-JtQT5jFgwIqIhR5TP_DssqhaTDfsHvkJeWS8rw"/>
+  <title>Mayank PDF Hub - Free PDF Tools</title>
+<link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Mayank PDF Hub offers free, browser-based PDF tools to merge, split, convert, and secure documents without uploading files." />
+  <meta name="keywords" content="pdf tools, merge pdf, split pdf, pdf converter, mayank pdf" />
+  <meta name="author" content="Mayank" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8461235348626570"
+     crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --bg-deep: #e9eefc;
+      --surface: #ffffff;
+      --ink: #12172a;
+      --muted: #59627f;
+      --line: #dbe2fb;
+      --primary: #1d4ed8;
+      --secondary: #0f766e;
+      --accent: #d946ef;
+      --shadow: 0 14px 34px rgba(29, 78, 216, 0.14);
+      --radius-lg: 22px;
+      --radius-md: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 2%, rgba(217, 70, 239, 0.14), transparent 30%),
+        radial-gradient(circle at 90% 16%, rgba(29, 78, 216, 0.16), transparent 34%),
+        linear-gradient(180deg, var(--bg), var(--bg-deep));
+    }
+
+    .container {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, #ffffff 88%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-content {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      text-decoration: none;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-text {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-text span {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      cursor: pointer;
+      padding: 10px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: #1f2937;
+    }
+
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item > a,
+    .nav-link {
+      text-decoration: none;
+      color: #273150;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+    }
+
+    .nav-item > a:hover,
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 220px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 8px;
+      display: none;
+      z-index: 20;
+    }
+
+    .dropdown-item {
+      display: block;
+      text-decoration: none;
+      color: #334155;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 9px 10px;
+      border-radius: 8px;
+    }
+
+    .dropdown-item:hover {
+      background: #eef2ff;
+      color: var(--primary);
+    }
+
+    .nav-item:hover .dropdown-menu {
+      display: block;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5.4rem 1rem 2.1rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(860px, 95vw);
+      height: 250px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(29, 78, 216, 0.2), rgba(217, 70, 239, 0.2));
+      filter: blur(64px);
+      z-index: -1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #eef2ff;
+      color: #3730a3;
+      border: 1px solid #c7d2fe;
+      border-radius: 999px;
+      padding: 0.56rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(2rem, 4.2vw, 4.1rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      margin: 1rem auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 2rem 0 1.4rem;
+    }
+
+    .filter-btn {
+      border: 1px solid #cfd7fb;
+      background: var(--surface);
+      color: #34405f;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: #93c5fd;
+      color: var(--primary);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--primary), #3b82f6);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.1rem;
+      padding-bottom: 3.4rem;
+    }
+
+
+    .card {
+      background: linear-gradient(180deg, #ffffff, #f8faff);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: inherit;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-height: 180px;
+      box-shadow: 0 6px 14px rgba(30, 41, 59, 0.08);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: #a5b4fc;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--secondary), #14b8a6);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.04rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      background: #101526;
+      color: #cbd5e1;
+      padding: 2.3rem 0 1.1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 2fr) repeat(2, minmax(160px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 0.8rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.44rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover { color: #93c5fd; }
+
+    .footer-bottom {
+      border-top: 1px solid #1f2b4b;
+      margin-top: 1.3rem;
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 1.14rem;
+    }
+
+    .social-icons a:hover { color: #93c5fd; }
+
+    .developer-credit {
+      margin: 0.8rem 0 0;
+      text-align: right;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    .developer-credit a {
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+
+    .brand-social-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .connect-links {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #94a3b8;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .connect-links a {
+      color: #93c5fd;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .connect-links ion-icon {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hamburger { display: inline-flex; }
+
+      .nav-menu {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.9rem 4vw 1.2rem;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-menu.open { display: flex; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .brand-social-row { flex-direction: column; align-items: flex-start; }
+      .connect-links { justify-content: flex-start; white-space: normal; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 4.3rem; }
+      .hero h1 { font-size: 2.15rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">
+        <ion-icon name="document-text" style="color: #1d4ed8; font-size: 1.9rem;"></ion-icon>
+        <div class="brand-text">MAYANK <span>PDF HUB</span></div>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="pages/merge.html">MERGE PDF</a></li>
+        <li class="nav-item"><a href="pages/split.html">SPLIT PDF</a></li>
+        <li class="nav-item"><a href="pages/compress.html">COMPRESS PDF</a></li>
+        <li class="nav-item">
+          <div class="nav-link">CONVERT PDF <ion-icon name="caret-down-outline"></ion-icon></div>
+          <div class="dropdown-menu">
+            <a href="pages/jpg-to-pdf.html" class="dropdown-item">JPG to PDF</a>
+            <a href="pages/pdf-to-jpg.html" class="dropdown-item">PDF to JPG</a>
+            <a href="pages/pdf-to-word.html" class="dropdown-item">PDF to Word</a>
+            <a href="pages/pdf-to-powerpoint.html" class="dropdown-item">PDF to PowerPoint</a>
+            <a href="pages/word-to-pdf.html" class="dropdown-item">Word to PDF</a>
+            <a href="pages/powerpoint-to-pdf.html" class="dropdown-item">PowerPoint to PDF</a>
+            <a href="pages/excel-to-pdf.html" class="dropdown-item">Excel to PDF</a>
+            <a href="pages/html-to-pdf.html" class="dropdown-item">HTML to PDF</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link">ALL PDF TOOLS <ion-icon name="caret-down-outline"></ion-icon></div>
+          <div class="dropdown-menu" style="min-width: 250px;">
+            <a href="pages/rotate.html" class="dropdown-item">Rotate PDF</a>
+            <a href="pages/number.html" class="dropdown-item">Page Numbers</a>
+            <a href="pages/protect.html" class="dropdown-item">Protect PDF</a>
+            <a href="pages/unlock.html" class="dropdown-item">Unlock PDF</a>
+            <a href="pages/watermark.html" class="dropdown-item">Watermark PDF</a>
+            <a href="pages/organize.html" class="dropdown-item">Organize PDF</a>
+          </div>
+        </li>
+       <li class="nav-item">
+<a href="mayank-pdf-hub.apk" download>DOWNLOAD APP</a>
+</li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-badge"><ion-icon name="sparkles-outline"></ion-icon> Created by Mayank</div>
+      <h1>Fast, Private, Browser-Only PDF Tools</h1>
+      <p>Use free PDF tools without uploads or hidden pricing. Build, convert, and secure files directly in your browser.</p>
+    </section>
+
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="organize">Organize PDF</button>
+      <button class="filter-btn" data-filter="optimize">Optimize PDF</button>
+      <button class="filter-btn" data-filter="convert">Convert PDF</button>
+      <button class="filter-btn" data-filter="edit">Edit PDF</button>
+      <button class="filter-btn" data-filter="security">PDF Security</button>
+      <button class="filter-btn" data-filter="utility">Utility</button>
+    </div>
+
+    <section class="tools-grid">
+      <a href="pages/merge.html" class="card" data-category="organize"><div class="card-icon"><ion-icon name="git-merge-outline"></ion-icon></div><h3>Merge PDF</h3><p>Combine many PDF files into one clean document.</p></a>
+      <a href="pages/split.html" class="card" data-category="organize"><div class="card-icon"><ion-icon name="cut-outline"></ion-icon></div><h3>Split PDF</h3><p>Extract exact pages or split into separate files.</p></a>
+      <a href="pages/compress.html" class="card" data-category="optimize"><div class="card-icon"><ion-icon name="resize-outline"></ion-icon></div><h3>Compress PDF</h3><p>Reduce PDF size while retaining readable quality.</p></a>
+      <a href="pages/jpg-to-pdf.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="images-outline"></ion-icon></div><h3>JPG to PDF</h3><p>Turn your images into one shareable PDF.</p></a>
+      <a href="pages/pdf-to-jpg.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="image-outline"></ion-icon></div><h3>PDF to JPG</h3><p>Export PDF pages as high-quality image files.</p></a>
+      <a href="pages/pdf-to-word.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="document-text-outline"></ion-icon></div><h3>PDF to Word</h3><p>Convert PDF pages to DOCX with layout-preserving output.</p></a>
+      <a href="pages/pdf-to-powerpoint.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="albums-outline"></ion-icon></div><h3>PDF to PowerPoint</h3><p>Convert PDF pages to PPTX with layout-preserving slides.</p></a>
+      <a href="pages/rotate.html" class="card" data-category="organize edit"><div class="card-icon"><ion-icon name="sync-outline"></ion-icon></div><h3>Rotate PDF</h3><p>Fix page orientation permanently and quickly.</p></a>
+      <a href="pages/number.html" class="card" data-category="edit"><div class="card-icon"><ion-icon name="list-outline"></ion-icon></div><h3>Page Numbers</h3><p>Add page numbers with control over placement.</p></a>
+      <a href="pages/protect.html" class="card" data-category="security"><div class="card-icon"><ion-icon name="lock-closed-outline"></ion-icon></div><h3>Protect PDF</h3><p>Add a password to protect your document.</p></a>
+      <a href="pages/unlock.html" class="card" data-category="security"><div class="card-icon"><ion-icon name="lock-open-outline"></ion-icon></div><h3>Unlock PDF</h3><p>Remove password restrictions from PDFs.</p></a>
+      <a href="pages/watermark.html" class="card" data-category="edit"><div class="card-icon"><ion-icon name="water-outline"></ion-icon></div><h3>Watermark PDF</h3><p>Apply logo or text watermark to every page.</p></a>
+      <a href="pages/organize.html" class="card" data-category="organize"><div class="card-icon"><ion-icon name="grid-outline"></ion-icon></div><h3>Organize PDF</h3><p>Reorder, delete, and restructure your pages.</p></a>
+      <a href="pages/word-to-pdf.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="document-outline"></ion-icon></div><h3>Word to PDF</h3><p>Convert DOC/DOCX into polished PDFs.</p></a>
+      <a href="pages/excel-to-pdf.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="stats-chart-outline"></ion-icon></div><h3>Excel to PDF</h3><p>Turn spreadsheets into PDF reports.</p></a>
+      <a href="pages/html-to-pdf.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="logo-html5"></ion-icon></div><h3>HTML to PDF</h3><p>Export web pages to print-ready PDF files.</p></a>
+      <a href="pages/age-calculator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="stopwatch-outline"></ion-icon></div><h3>Age Calculator</h3><p>Calculate exact age with years, months, days, and total lived days.</p></a>
+      <a href="pages/basic-calculator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="calculator-outline"></ion-icon></div><h3>Basic Calculator</h3><p>Simple arithmetic in a lightweight card.</p></a>
+      <a href="pages/discount-calculator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="pricetag-outline"></ion-icon></div><h3>Discount Calculator</h3><p>Find sale price and savings instantly.</p></a>
+      <a href="pages/grade-calculator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="school-outline"></ion-icon></div><h3>Grade Calculator</h3><p>Convert marks into percentage and letter grade.</p></a>
+      <a href="pages/emi-calculator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="receipt-outline"></ion-icon></div><h3>EMI Calculator</h3><p>Estimate monthly payments with total interest.</p></a>
+      <a href="pages/barcode-generator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="barcode-outline"></ion-icon></div><h3>Barcode Generator</h3><p>Turn short text into a numeric barcode or QR-style display.</p></a>
+      <a href="pages/currency-calculator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="cash-outline"></ion-icon></div><h3>Currency Calculator</h3><p>Convert between common currencies using live-friendly rates.</p></a>
+      <a href="pages/qr-code-generator.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="qr-code-outline"></ion-icon></div><h3>QR Code Generator</h3><p>Create scan-ready QR codes from any short text or link.</p></a>
+      <a href="pages/image-resizer.html" class="card" data-category="utility"><div class="card-icon"><ion-icon name="resize-outline"></ion-icon></div><h3>Image Resizer</h3><p>Upload and resize images while keeping aspect ratio in control.</p></a>
+      <a href="pages/powerpoint-to-pdf.html" class="card" data-category="convert"><div class="card-icon"><ion-icon name="easel-outline"></ion-icon></div><h3>PowerPoint to PDF</h3><p>Convert PPT/PPTX to PDF with server mode.</p></a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-social-row">
+            <div class="logo" style="margin-bottom: 1rem; color: #fff;">
+              <ion-icon name="document-text" style="color: #60a5fa; font-size: 1.45rem;"></ion-icon>
+              <div class="brand-text" style="font-size: 1.1rem; color: #fff;">MAYANK <span>PDF HUB</span></div>
+            </div>
+            <p class="connect-links">
+              <a href="https://youtube.com/@mayank.vlogs13" target="_blank" rel="noopener"><ion-icon name="logo-youtube"></ion-icon> YouTube</a>
+              <a href="https://www.instagram.com/krmayank.01/" target="_blank" rel="noopener"><ion-icon name="logo-instagram"></ion-icon> Instagram</a>
+              <a href="https://www.linkedin.com/in/mayank-kumar-62a8b836664b/" target="_blank" rel="noopener"><ion-icon name="logo-linkedin"></ion-icon> LinkedIn</a>
+            </p>
+          </div>
+          <p style="margin: 0.45rem 0 0; color: #cbd5e1; font-size: 0.92rem;">
+            Contact: <a href="mailto:mayankkr00126@gmail.com" style="color: #93c5fd; text-decoration: none;">mayankkr00126@gmail.com</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="pages/about.html">About Us</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="pages/terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="pages/download.html">Download APP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div><ion-icon name="globe-outline" style="vertical-align: middle; margin-right: 4px;"></ion-icon> English</div>
+        <div style="color: #94a3b8;">&copy; Mayank PDF Hub 2026 - All rights reserved.</div>
+      </div>
+
+      <p class="developer-credit">Designed and developed by <a href="https://www.linkedin.com/in/mayank-kumar-62a8b834b/" target="_blank" rel="noopener">Mayank</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".card");
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+      });
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+          cards.forEach((card) => {
+            const categories = card.getAttribute("data-category") || "";
+            card.style.display = filter === "all" || categories.includes(filter) ? "flex" : "none";
+          });
+        });
+      });
+
+    });
+  </script>
+  <!-- WEBSITE SECURITY START -->
+<script>
+
+// Disable Right Click
+document.addEventListener("contextmenu", function(e){
+e.preventDefault();
+});
+
+// Disable Inspect Element & View Source
+document.onkeydown = function(e) {
+if (e.keyCode == 123) { return false; } // F12
+if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { return false; } // Ctrl+Shift+I
+if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { return false; } // Ctrl+Shift+J
+if (e.ctrlKey && e.keyCode == 85) { return false; } // Ctrl+U
+};
+
+// Disable Text Selection
+document.addEventListener("selectstart", function(e){
+e.preventDefault();
+});
+
+// Disable Drag
+document.addEventListener("dragstart", function(e){
+e.preventDefault();
+});
+
+// Disable Image Save
+document.querySelectorAll("img").forEach(img=>{
+img.addEventListener("contextmenu",e=>e.preventDefault());
+});
+
+// Console Warning
+console.clear();
+console.log("%cSTOP!", "color:red;font-size:40px;font-weight:bold;");
+console.log("This website is protected.");
+
+</script>
+<!-- WEBSITE SECURITY END -->
+<style>
+#updateBox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#updateContent{
+background:#fff;
+padding:20px;
+border-radius:10px;
+text-align:center;
+width:300px;
+font-family:Arial;
+}
+
+#updateBtn{
+background:#0f9d58;
+color:#fff;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+
+<div id="updateBox">
+<div id="updateContent">
+<h3>Update Available</h3>
+<p>A new version of Mayank PDF Hub is available.</p>
+<button id="updateBtn">Update Now</button>
+</div>
+</div>
+
+<script>
+const currentVersion = "1.0";
+
+fetch("version.txt")
+.then(res=>res.text())
+.then(version=>{
+if(version.trim()!==currentVersion){
+document.getElementById("updateBox").style.display="flex";
+}
+});
+
+document.getElementById("updateBtn").onclick=function(){
+window.location.href="mayank-pdf-hub.apk";
+};
+</script>
+</body>
+</html>
